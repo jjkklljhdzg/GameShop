@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игровая Лавка</title>
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/index_style.css">
+</head>
+
+<body>
+    <div class="wraper">
+        <header>
+            <nav>
+                <img class="logo" src="assets/images/лого.svg" alt="Логотип">
+                <div class="title" id="UP">
+                    <p class="title-p">Игровая</p>
+                    <p class="title-p">Лавка</p>
+                </div>
+
+                <div class="menu-container">
+                    <input type="checkbox" id="menu-toggle">
+                    <label class="menu-icon" for="menu-toggle">☰</label>
+
+                    <!-- Убрали for из menu-backdrop -->
+                    <div class="menu-backdrop"></div>
+
+                    <div class="side-menu">
+                        <div class="filter-header">
+                            <h3>ФИЛЬТРЫ</h3>
+                            <button class="close-menu" type="button" onclick="closeFilterMenu()"></button>
+                        </div>
+
+                        <div class="filter-section">
+                            <h4>ПОИСК ИГРЫ</h4>
+                            <input type="text" id="searchInput" class="filter-input" placeholder="Название игры...">
+                        </div>
+
+                        <div class="filter-section">
+                            <h4>ДИАПАЗОН ЦЕН</h4>
+                            <div class="filter-group">
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="all" checked>
+                                    <span>Любая цена</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="200-400">
+                                    <span>200-400 ₽</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="400-600">
+                                    <span>400-600 ₽</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="price" value="600-1000">
+                                    <span>600-1000 ₽</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <h4>ЖАНРЫ</h4>
+                            <div class="filter-group">
+                                <label class="filter-option">
+                                    <input type="checkbox" value="экшн">
+                                    <span>Экшн</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="приключение">
+                                    <span>Приключение</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="симулятор">
+                                    <span>Симулятор</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="головоломка">
+                                    <span>Головоломка</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="стратегия">
+                                    <span>Стратегия</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="ролевые">
+                                    <span>Ролевые</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filter-actions">
+                            <button class="btn-reset" type="button" onclick="resetFilters()">Сбросить</button>
+                            <button class="btn-apply" type="button" onclick="applyFilters()">Применить</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="line"></div>
+
+            <div class="photo-container">
+                <div class="photo-1">
+                    <img src="assets/images/карт1.png" alt="Игры">
+                </div>
+                <div class="photo-2">
+                    <img src="assets/images/карт2.png" alt="Игры">
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <a href="#UP" class="up-link">
+                <img class="up" src="assets/images/up.svg" alt="Наверх">
+            </a>
+
+            <div class="card-container" id="gameCardsContainer">
+                <a href="pages/page-1.html" class="card" data-name="genshin impact" data-price="600"
+                    data-genres="экшн,приключение,ролевые" data-producer="mihoyo">
+                    <img src="assets/images/генщ-карт.png" alt="Genshin Impact">
+                    <p class="card_name">Genshin Impact</p>
+                    <p class="price">600 ₽</p>
+                </a>
+                <a href="pages/page-2.html" class="card" data-name="honkai star rail" data-price="600"
+                    data-genres="экшн,приключение,ролевые" data-producer="hoyoverse">
+                    <img src="assets/images/хонк-карт.png" alt="Honkai Star Rail">
+                    <p class="card_name">Honkai Star Rail</p>
+                    <p class="price">600 ₽</p>
+                </a>
+                <a href="pages/page-3.html" class="card" data-name="zenless zone zero" data-price="600"
+                    data-genres="экшн,приключение" data-producer="hoyoverse">
+                    <img src="assets/images/ззз-карт.png" alt="Zenless Zone Zero">
+                    <p class="card_name">Zenless Zone Zero</p>
+                    <p class="price">600 ₽</p>
+                </a>
+                <a href="pages/page-5.html" class="card" data-name="нонограм" data-price="200" data-genres="головоломка"
+                    data-producer="easybrain">
+                    <img src="assets/images/нон-карт.png" alt="Нонограм">
+                    <p class="card_name">Нонограм</p>
+                    <p class="price">200 ₽</p>
+                </a>
+                <a href="pages/page-6.html" class="card" data-name="homescapes" data-price="400"
+                    data-genres="головоломка,симулятор" data-producer="playrix">
+                    <img src="assets/images/хом-карт.png" alt="Homescapes">
+                    <p class="card_name">Homescapes</p>
+                    <p class="price">400 ₽</p>
+                </a>
+                <a href="pages/page-7.html" class="card" data-name="кошки и суп" data-price="400"
+                    data-genres="симулятор" data-producer="yso corp">
+                    <img src="assets/images/суп-карт.png" alt="Кошки и суп">
+                    <p class="card_name">Кошки и суп</p>
+                    <p class="price">400 ₽</p>
+                </a>
+                <a href="pages/page-8.html" class="card" data-name="cut the rope 2" data-price="500"
+                    data-genres="головоломка,приключение" data-producer="zeptolab">
+                    <img src="assets/images/роп-карт.png" alt="Cut the Rope 2">
+                    <p class="card_name">Cut the Rope 2</p>
+                    <p class="price">500 ₽</p>
+                </a>
+                <a href="pages/page-10.html" class="card" data-name="decor life" data-price="700"
+                    data-genres="симулятор" data-producer="saygames">
+                    <img src="assets/images/декор-карт.png" alt="Decor Life">
+                    <p class="card_name">Decor Life</p>
+                    <p class="price">700 ₽</p>
+                </a>
+            </div>
+
+            <div class="no-results" id="noResults">
+                <p>😔 Игр не найдено</p>
+                <p>Попробуйте изменить параметры поиска</p>
+                <button type="button" onclick="resetFilters()">Сбросить фильтры</button>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="about_us">
+                <div class="about-content" id="aboutContent">
+                    <p class="about-title">Добро пожаловать в Игровую Лавку!</p>
+                    <div class="about-text-wrapper">
+                        <p class="text">Мы предлагаем широкий ассортимент игровых продуктов для различных платформ,
+                            включая ПК, консоли и мобильные устройства. У нас вы найдете самые популярные новинки, а
+                            также проверенные временем хиты игровой индустрии.</p>
+                        <p class="text">Наш магазин предлагает игры разных жанров – от экшенов до стратегий, от ролевых
+                            игр до симуляторов. Все продукты представлены в удобном формате цифровых ключей, что
+                            позволяет вам мгновенно получить доступ к игре после покупки.</p>
+                        <p class="text">Мы заботимся о качестве обслуживания наших клиентов, поэтому предоставляем
+                            быструю доставку, удобные способы оплаты и профессиональную техническую поддержку. Если у
+                            вас возникнут вопросы при выборе игры или оформлении заказа, наши специалисты всегда готовы
+                            помочь.</p>
+                    </div>
+                </div>
+                <button class="read-more-btn" type="button" onclick="toggleAboutText()">Читать дальше</button>
+            </div>
+
+            <div class="line"></div>
+        </main>
+
+        <footer>
+            <div class="column1">
+                <div class="links">
+                    <a href="https://vk.com/ldblqpl"><img class="link" src="assets/images/тг.svg" alt="Telegram"></a>
+                    <a href="https://t.me/s_a_p_p_h_i_c"><img class="link vk" src="assets/images/вк.svg" alt="VK"></a>
+                </div>
+
+                <p class="text_footer">support_GameShop@gmail.com</p>
+            </div>
+            <div class="column2">
+                <p class="text_footer">Правовая информация</p>
+                <p class="text_footer">Конфиденциальность</p>
+                <p class="text_footer">Соглашение</p>
+                <p class="text_footer">Возвраты</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="assets/scripts/script.js"></script>
+</body>
+
+</html>
