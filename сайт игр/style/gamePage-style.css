@@ -1,0 +1,220 @@
+body{
+    background-color: black;
+}
+.wraper{
+    max-width: 1920px;
+    margin: 0 auto;
+}
+.head{
+    display: flex;
+    justify-content: center;
+}
+.logo{
+    height: 35px;
+    width: 35px;
+    color: white;
+    margin-top: 10px;
+   
+}
+.line{
+    border-top: 3px solid #ffffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.contain{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    display:flex;
+    width: auto ;
+    gap:1rem;
+    max-width: 449px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.card{
+    height: auto;
+    max-height: 740px;
+    flex: 1;
+    transition: .7s;
+}
+.card:hover{
+    flex:6;
+}
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.title{
+    font-family: Remark;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+.about{
+    font-family: Remark;
+    font-size: 16px;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.about-text{
+    font-family: Remark;
+    font-size: 15px;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+button{
+    margin: 0 auto;
+    display: block;
+    background-color: white;
+    font-family: HardPixel;
+    font-size: 16px;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+}
+.name{
+    font-family: Remark;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+.box{
+    margin: 10px 20px 10px 20px;
+    border-radius: 15px;
+    border: 3px solid white; 
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+}
+div.profile img{
+    height: 35px;
+    width: 35px;
+    margin: 10px 10px 0px 10px;
+    border-radius: 18px;
+}
+div.profile p{
+    color: white;
+    font-family: HardPixel;
+    font-size: 16px;
+}
+div.review p{
+    color: white;
+    font-family: Remark;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+footer{
+    margin:10px 20px 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.column1{
+    display: flex;
+    flex-direction: column;
+}
+.column2{
+    display: flex;
+    flex-direction: column;
+}
+.link{
+    height: 25px;
+    width: 25px;
+    margin-top: 20px;
+    
+}
+.text_footer{
+    font-size: 11px;
+    color: rgb(255, 255, 255);
+    font-family:Remark;
+    text-align: center;
+}
+@font-face{
+    font-family: "HardPixel";
+    src: url(../assets/fonts/Hardpixel.OTF);
+}
+@font-face{
+    font-family: "Remark";
+    src: url(../assets/fonts/LTRemark-Regular.otf);
+}
+@media screen and (min-width:768px) and (max-width:1023px){
+    .title{
+        font-size: 22px;
+    }
+    .about{
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    .about-text{
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    button{
+        font-size: 18px;
+        border-radius: 15px;
+        padding: 10px;
+    }
+    .box{
+        margin: 20px 100px 20px 100px;
+    }
+    .text_footer{
+        font-size: 18px;
+    }
+    footer{
+        margin:10px 100px 10px 100px;
+    }
+    .logo{
+        height: 50px;
+        width: 50px;
+    }
+}
+@media screen and (min-width:1024px){
+    .logo{
+        height: 45px;
+        width: 45px;
+        margin-top: 20px;
+       
+    }
+    .container{
+        gap:1rem;
+        max-width: 500px;
+    }
+    .card{
+        height: auto;
+        max-height: 878px;
+    }
+    .title{
+        font-size: 24px;
+    }
+    button{
+        font-size: 20px;
+        border-radius: 15px;
+        padding: 10px;
+    }
+    .about{
+        font-size: 18px;
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+    .about-text{
+        font-size: 17px;
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+    .box{
+        margin: 30px 200px 30px 200px;
+    }
+    .text_footer{
+        font-size: 18px;
+    }
+    footer{
+        margin:10px 120px 10px 120px;
+    }
+}
