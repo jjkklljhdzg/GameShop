@@ -10,9 +10,9 @@ function applyFilters() {
     const priceRadio = document.querySelector('input[name="price"]:checked');
     const priceValue = priceRadio ? priceRadio.value : 'all';
     
-    // Получаем выбранные жанры
-    const genreCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    const selectedGenres = Array.from(genreCheckboxes).map(cb => cb.value);
+    // Выбираем только чекбоксы из блока жанров
+    const genreCheckboxes = document.querySelectorAll('.filter-section input[type="checkbox"]:checked');
+    const selectedGenres = Array.from(genreCheckboxes).map(cb => cb.value.toLowerCase().trim());
     
     // Получаем все карточки
     const cards = document.querySelectorAll('.card');
@@ -20,21 +20,22 @@ function applyFilters() {
     
     // Проверяем каждую карточку
     cards.forEach(card => {
-        const gameName = card.dataset.name.toLowerCase();
-        const gamePrice = parseInt(card.dataset.price);
-        const gameGenres = card.dataset.genres ? card.dataset.genres.split(',') : [];
+        const gameName = (card.dataset.name || '').toLowerCase();
+        const cardTitle = card.querySelector('.card_name') ? card.querySelector('.card_name').textContent.toLowerCase() : '';
+        const gamePrice = parseInt(card.dataset.price, 10);
+        const gameGenres = card.dataset.genres ? card.dataset.genres.toLowerCase().split(',').map(g => g.trim()) : [];
         
         // 1. Проверка поиска
         let matchesSearch = true;
         if (searchValue) {
-            matchesSearch = gameName.includes(searchValue);
+            matchesSearch = gameName.includes(searchValue) || cardTitle.includes(searchValue);
         }
         
         // 2. Проверка цены
         let matchesPrice = true;
         if (priceValue !== 'all') {
             const [min, max] = priceValue.split('-').map(Number);
-            matchesPrice = gamePrice >= min && gamePrice <= max;
+            matchesPrice = !isNaN(gamePrice) && gamePrice >= min && gamePrice <= max;
         }
         
         // 3. Проверка жанров
@@ -68,7 +69,7 @@ function applyFilters() {
     
     console.log('Найдено игр:', visibleCount);
     
-    // ЗАКРЫВАЕМ МЕНЮ ПОСЛЕ ПРИМЕНЕНИЯ ФИЛЬТРОВ
+    // Закрываем меню после применения фильтров
     closeFilterMenu();
 }
 
@@ -89,7 +90,7 @@ function resetFilters() {
     }
     
     // Сбрасываем чекбоксы жанров
-    const genreCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+    const genreCheckboxes = document.querySelectorAll('.filter-section input[type="checkbox"]');
     genreCheckboxes.forEach(cb => {
         cb.checked = false;
     });
@@ -124,12 +125,14 @@ function toggleAboutText() {
     const aboutContent = document.getElementById('aboutContent');
     const button = document.querySelector('.read-more-btn');
     
-    if (aboutContent.classList.contains('expanded')) {
-        aboutContent.classList.remove('expanded');
-        button.textContent = 'Читать дальше';
-    } else {
-        aboutContent.classList.add('expanded');
-        button.textContent = 'Свернуть';
+    if (aboutContent) {
+        if (aboutContent.classList.contains('expanded')) {
+            aboutContent.classList.remove('expanded');
+            if (button) button.textContent = 'Читать дальше';
+        } else {
+            aboutContent.classList.add('expanded');
+            if (button) button.textContent = 'Свернуть';
+        }
     }
 }
 
@@ -139,11 +142,9 @@ function checkScreenSize() {
     const aboutContent = document.getElementById('aboutContent');
     
     if (window.innerWidth >= 768) {
-        // На больших экранах всегда показываем полный текст
         if (button) button.style.display = 'none';
         if (aboutContent) aboutContent.classList.add('expanded');
     } else {
-        // На мобильных показываем кнопку
         if (button) button.style.display = 'block';
         if (aboutContent) aboutContent.classList.remove('expanded');
     }
@@ -153,10 +154,8 @@ function checkScreenSize() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Страница загружена');
     
-    // Проверяем размер экрана
     checkScreenSize();
     
-    // Применяем фильтры при загрузке (показываем все карточки)
     setTimeout(applyFilters, 100);
 });
 
