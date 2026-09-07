@@ -42,7 +42,7 @@ nav {
     text-align: center;
 }
 
-/* ===== МЕНЮ ФИЛЬТРОВ - ИСПРАВЛЕННОЕ ===== */
+/* ===== МЕНЮ ФИЛЬТРОВ ===== */
 .menu-container {
     position: relative;
     display: block;
@@ -81,6 +81,7 @@ nav {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
+    cursor: pointer;
 }
 
 .side-menu {
@@ -98,7 +99,6 @@ nav {
     box-sizing: border-box;
 }
 
-/* ИСПРАВЛЕННЫЙ СЕЛЕКТОР - самый простой и рабочий */
 #menu-toggle:checked~.menu-backdrop {
     display: block;
 }
@@ -270,16 +270,13 @@ main {
     max-width: 700px;
     height: auto;
     margin: 0 auto;
-    /* Это центрирует контейнер */
     position: relative;
     overflow: hidden;
     display: block;
-    /* Меняем flex на block */
 }
 
 .photo-container img {
     width: 100%;
-    /* Меняем 90% на 100% */
     height: auto;
     display: block;
 }
@@ -389,7 +386,6 @@ main {
 .card.hidden {
     display: none !important;
 }
-
 
 /* ===== СООБЩЕНИЕ "НЕТ РЕЗУЛЬТАТОВ" ===== */
 .no-results {
@@ -534,6 +530,7 @@ footer {
     gap: 15px;
     margin-bottom: 10px;
 }
+
 .link {
     height: auto;
     width: 25px;
@@ -596,7 +593,6 @@ footer {
 
 /* ===== МЕДИАЗАПРОСЫ ===== */
 
-/* Мобильные (до 767px) */
 @media screen and (max-width: 767px) {
     .side-menu {
         width: 85%;
@@ -655,7 +651,6 @@ footer {
     }
 }
 
-/* Планшеты (768px - 1023px) */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     nav {
         margin: 20px 40px;
@@ -713,7 +708,6 @@ footer {
     }
 }
 
-/* Десктоп (1024px - 1919px) */
 @media screen and (min-width: 1024px) and (max-width: 1919px) {
     .card {
         width: calc(25% - 15px);
@@ -770,7 +764,6 @@ footer {
     }
 }
 
-/* Большие экраны (1920px+) */
 @media screen and (min-width: 1920px) {
     .card {
         width: calc(25% - 20px);
