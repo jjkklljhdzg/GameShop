@@ -21,15 +21,14 @@
 
                 <div class="menu-container">
                     <input type="checkbox" id="menu-toggle">
-                    <label class="menu-icon" for="menu-toggle">☰</label>
+                    <label class="menu-icon" for="menu-toggle">&#9776;</label>
 
-                    <!-- Убрали for из menu-backdrop -->
-                    <div class="menu-backdrop"></div>
+                    <label class="menu-backdrop" for="menu-toggle"></label>
 
                     <div class="side-menu">
                         <div class="filter-header">
                             <h3>ФИЛЬТРЫ</h3>
-                            <button class="close-menu" type="button" onclick="closeFilterMenu()"></button>
+                            <button class="close-menu" type="button" onclick="closeFilterMenu()">&times;</button>
                         </div>
 
                         <div class="filter-section">
@@ -168,7 +167,7 @@
             </div>
 
             <div class="no-results" id="noResults">
-                <p>😔 Игр не найдено</p>
+                <p>Игр не найдено</p>
                 <p>Попробуйте изменить параметры поиска</p>
                 <button type="button" onclick="resetFilters()">Сбросить фильтры</button>
             </div>
@@ -217,6 +216,5 @@
 
     <script src="assets/scripts/script.js"></script>
 </body>
-
 
 </html>
